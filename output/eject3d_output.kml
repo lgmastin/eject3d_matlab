@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+    <StyleMap id="VentMarker">
+      <Pair>
+             <key>normal</key>
+             <styleUrl>#VentMarkerNormal</styleUrl>
+      </Pair>
+      <Pair>
+             <key>highlight</key>
+             <styleUrl>#VentMarkerHighlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="VentMarkerNormal">
+      <IconStyle>
+             <scale>0.8</scale>
+             <Icon>
+               <href>http://maps.google.com/mapfiles/kml/pal4/icon52.png</href>
+             </Icon>
+      </IconStyle>
+      <LabelStyle>
+             <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="VentMarkerHighlight">
+      <IconStyle>
+             <scale>1</scale>
+             <Icon>
+               <href>http://maps.google.com/mapfiles/kml/pal4/icon52.png</href>
+             </Icon>
+      </IconStyle>
+      <LabelStyle>
+             <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="BlockMarker">
+      <Pair>
+             <key>normal</key>
+             <styleUrl>#BlockMarkerNormal</styleUrl>
+      </Pair>
+      <Pair>
+             <key>highlight</key>
+             <styleUrl>#BlockMarkerHighlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="BlockMarkerNormal">
+      <IconStyle>
+             <scale>0.8</scale>
+             <Icon>
+               <href>http://maps.google.com/mapfiles/kml/pal4/icon48.png</href>
+             </Icon>
+      </IconStyle>
+      <LabelStyle>
+             <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="BlockMarkerHighlight">
+      <IconStyle>
+             <scale>1</scale>
+             <Icon>
+               <href>http://maps.google.com/mapfiles/kml/pal4/icon48.png</href>
+             </Icon>
+      </IconStyle>
+      <LabelStyle>
+             <scale>1</scale>
+      </LabelStyle>
+    </Style>
+  <Placemark>
+    <name>Vent Location</name>
+    <styleUrl>#VentMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Number of blocks ejected: 5</li>
+                  <li>     vertical angle: mean=90.0, std=  40 deg from horizontal</li>
+                  <li>   horizontal angle: from    0.0 to  360.0 deg E of N</li>
+                  <li> log block diameter: mean=0.00, std=0.30 meters</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552814e+02,1.940800e+01,0</coordinates>
+    </Point>
+  </Placemark>
+   <Folder id="block landing points">
+       <name>Forecasts</name>
+       <open>1</open>
+       <visibility>1</visibility>
+       <Style>
+           <ListStyle>
+               <bgColor>00ffffff</bgColor>
+           </ListStyle>
+       </Style>
+  <Placemark>
+    <name>Block 1</name>
+    <styleUrl>#BlockMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Ejection velocity:  156.9 m/s</li>
+                  <li>   vertical angle: 50.6 deg from horizontal</li>
+                  <li> horizontal angle:  297.3 deg E of N</li>
+                  <li>   block diameter:  0.9 meters</li>
+                  <li>      block shape: hicube</li>
+                  <li>   final distance:  1038.0 meters</li>
+                  <li>   time in flight:   12.5 seconds</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552902e+02,1.941219e+01,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Block 2</name>
+    <styleUrl>#BlockMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Ejection velocity:  154.0 m/s</li>
+                  <li>   vertical angle: 57.1 deg from horizontal</li>
+                  <li> horizontal angle:  193.8 deg E of N</li>
+                  <li>   block diameter:  0.5 meters</li>
+                  <li>      block shape: shell</li>
+                  <li>   final distance:  1499.7 meters</li>
+                  <li>   time in flight:   19.7 seconds</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552846e+02,1.939481e+01,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Block 3</name>
+    <styleUrl>#BlockMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Ejection velocity:  239.2 m/s</li>
+                  <li>   vertical angle: 70.3 deg from horizontal</li>
+                  <li> horizontal angle:  358.6 deg E of N</li>
+                  <li>   block diameter:  0.7 meters</li>
+                  <li>      block shape: hicube</li>
+                  <li>   final distance:  1367.7 meters</li>
+                  <li>   time in flight:   29.2 seconds</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552819e+02,1.942034e+01,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Block 4</name>
+    <styleUrl>#BlockMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Ejection velocity:  274.0 m/s</li>
+                  <li>   vertical angle: 87.1 deg from horizontal</li>
+                  <li> horizontal angle:   28.1 deg E of N</li>
+                  <li>   block diameter:  2.2 meters</li>
+                  <li>      block shape: shell</li>
+                  <li>   final distance:   690.2 meters</li>
+                  <li>   time in flight:   52.8 seconds</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552784e+02,1.941354e+01,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Block 5</name>
+    <styleUrl>#BlockMarker</styleUrl>
+    <description><![CDATA[
+                <ul>
+                  <li>Ejection velocity:  171.9 m/s</li>
+                  <li>   vertical angle: 51.1 deg from horizontal</li>
+                  <li> horizontal angle:  159.4 deg E of N</li>
+                  <li>   block diameter:  0.6 meters</li>
+                  <li>      block shape: shell</li>
+                  <li>   final distance:  2049.2 meters</li>
+                  <li>   time in flight:   20.9 seconds</li>
+                </ul>]]>
+    </description>
+    <Point>
+      <coordinates>-1.552743e+02,1.939077e+01,0</coordinates>
+    </Point>
+  </Placemark>
+   </Folder>
+</Document>
+</kml>

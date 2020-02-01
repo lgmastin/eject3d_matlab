@@ -1,0 +1,21 @@
+Inputs for eject3d, written 01-Feb-2020 07:42:16
+
+         vent location:  longitude=-155.28140,  latitude=19.40800
+      number of blocks:      5
+
+                  VARIABLE            DISTRIBUTION MEAN OR MIN  STD OR MAX
+ vertical angle, deg. from horizontal   Gaussian      90.0       40.0
+     initial velocity, m/s              Gaussian     250.0       50.0
+  log10 block diameter, m               Gaussian       0.0        0.3
+ initial direction, deg. E of N         Uniform        0.0      360.0
+
+     block types:    hicube    locube    sphere     shell
+
+INPUTS FOR EACH RUN
+***********************************************
+   i      vi    diam   theta     phi   dragtype
+   1   156.9    0.93    50.6   297.3    hicube
+   2   154.0    0.45    57.1   193.8     shell
+   3   239.2    0.65    70.3   358.6    hicube
+   4   274.0    2.19    87.1    28.1     shell
+   5   171.9    0.55    51.1   159.4     shell
