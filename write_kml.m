@@ -58,9 +58,17 @@ fclose(fid);
 
 load('input\terrain.mat','terrain','t_lon','t_lat','utmstruct');                  %load terrain file
 
-[vent_x, vent_y]       = mfwdtran(utmstruct,vent_lat,vent_lon);                   %get vent coordinates in UTM
+[vent_x, vent_y, UTM_zone] = deg2utm(vent_lat, vent_lon);
 vent_z                 = double(interp2(t_lon,t_lat,terrain,vent_lon,vent_lat));  %get vent elevation (m)
-[lat_final, lon_final] = minvtran(utmstruct,(vent_x+xfinal),(vent_y+yfinal));     %get landing point coordinates, lat/lon
+UTM_zones = char(length(xfinal),length(UTM_zone));
+%When calling utm2deg, each x-y coordinate needs to have a utm zone
+%associated with it.  So we have to duplicate the UTM_zone variable for
+%each one.
+lat_final = zeros(length(yfinal));
+lon_final = zeros(length(xfinal));
+for i=1:length(xfinal)
+    [lat_final(i), lon_final(i)] = utm2deg((vent_x+xfinal(i)),(vent_y+yfinal(i)),UTM_zone);
+end
 elev_final             = zfinal + vent_z;                                         %get landing point elevation
 
 %% BLOCK 3:  START WRITING KML FILE

@@ -24,6 +24,13 @@ write_trajectories.m   script that reads from the output trajectory files and
                                 output\block_trajectories.kml
 
 Utilities and functions:
+  deg2utm.m        function that converts degrees lat/lon to utm coordinates. 
+                       Written and copyrighted by Rafael Palacios, 2006, but
+                       licensed for public use and posted on Matlab File
+                       Exchange 
+                       https://www.mathworks.com/matlabcentral/fileexchange/10915-deg2utm
+                       The copyright notice is include in a comment block
+                       within the file.
   derivs.m         called by rk3d.m; calculates first derivatives of position 
                        and velcity along the trajectory.
   drag_hicube.m    function that calculates the drag coefficient of a hi cube 
@@ -53,14 +60,20 @@ Utilities and functions:
                                         each point in terrain
                            t_x       an NxM matrix giving UTM y values (northings) for
                                         each point in terrain
-                           utmstruct a structure file containing geographic projection
-                                        information for the local UTM zone.
+                           utmzone   the utm zone.
                        The geotiff used to create data in the example terrain.mat file
                        is located in input\KIL_30m2019\KIL_30M2019.tif.
                        If you wish to use this code on another volcano, you will have to
                        find a geotiff file for that volcano and run this script.  You
                        may also have to modify it depending on the format of the geotiff
                        you are reading.
+  utm2deg.m        function that converts utm coordinates to degrees lat/lon.
+                       Written and copyrighted by Rafael Palacios, 2006, but
+                       licensed for public use and posted on Matlab File
+                       Exchange 
+                       https://www.mathworks.com/matlabcentral/fileexchange/10915-deg2utm
+                       The copyright notice is include in a comment block
+                       within the file.
                        
                        
 Example input and output files are in the folders input and output                                

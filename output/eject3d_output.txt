@@ -1,4 +1,4 @@
-Inputs for eject3d, written 01-Feb-2020 07:43:01
+Inputs for eject3d, written 03-Feb-2020 09:54:59
 
          vent location:  longitude=-155.28140,  latitude=19.40800
       number of blocks:      5

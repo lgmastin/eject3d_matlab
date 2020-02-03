@@ -68,11 +68,15 @@ for i=1:n_ejects
    fclose(fid);
    
    %find vent UTM coordinates, vent elevation
-   [vent_x, vent_y] = mfwdtran(utmstruct,vent_lat,vent_lon);           
+   [vent_x, vent_y, UTM_zone] = deg2utm(vent_lat,vent_lon);
    vent_z           = elev;
    
    %find lat, lon of each point in the trajectory
-   [traj_lat, traj_lon] = minvtran(utmstruct,(vent_x+x),(vent_y+y));
+   traj_lat = zeros(length(y));
+   traj_lon = zeros(length(x));
+   for j=1:length(x)
+    [traj_lat(j), traj_lon(j)]  = utm2deg((vent_x+x(j)),(vent_y+y(j)),UTM_zone);
+   end
    traj_z = z + elev;
    
    if i==1

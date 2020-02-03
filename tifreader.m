@@ -11,6 +11,10 @@
 %%  Variables to be chcked and/or changed before running:
 
 
+% Vent longitude, latitude
+vent_lon = -155.2814;                     %Lat, lon
+vent_lat = 19.4080;
+
 %Name of GEOTIFF file.  It is assumed that this file has coordinates in
 %lat/lon, and that the values of each pixel are the elevation asl in
 %meters.
@@ -29,7 +33,7 @@ utmstruct = defaultm('utm');
 utmstruct.zone = UTM_zone;                    %add zone to utm structure
 utmstruct.geoid = ellipsoid;            %add ellipsoid to utm structure
 utmstruct = defaultm(utmstruct);
-[vent_x,vent_y] = mfwdtran(utmstruct,vent_lat,vent_lon);  %UTM coordinates of MSH
+[vent_x, vent_y, UTM_zone] = deg2utm(vent_lat,vent_lon);
 
 fprintf('UTM_ZONE  = %s\n',UTM_zone);
 fprintf('vent_x    = %9.0f\n',vent_x);
@@ -37,8 +41,13 @@ fprintf('vent_y    = %9.0f\n\n',vent_y);
 
 %% Read geotiff, get coordinates
 fprintf('Reading geotiff file %s\n',geotiff_name);
+
+%--------------------------------------------------------------------------
+%Note:  you will need the Matlab mapping toolbox in order for these
+%functions to work.
 [terrain,refmat,bbox] = geotiffread(geotiff_name);
 proj = geotiffinfo(geotiff_name);
+%--------------------------------------------------------------------------
 
 %Calculate locations of cell centers (assume bbox gives the cell centers
 % at the corners)
@@ -67,11 +76,11 @@ lonCC = lonmin+dlon/2:dlon:lonmax;      %in lon
 [t_lon, t_lat] = meshgrid(lonCC,latCC);
 [t_lon2, t_lat2] = meshgrid(lonCC,flipud(latCC));
 %Transform to UTM coordinates
-[t_x, t_y]    = mfwdtran(utmstruct,t_lat,t_lon);
+[t_x, t_y, UTM_zone] = deg2utm(t_lat,t_lon);
 
 %Write out projection reaults
 fprintf('saving results to terrain.mat\n');
 save('input\terrain.mat','terrain','t_lon','t_lat','t_x','t_y', ...
-     'proj','utmstruct');
+     'UTM_zone');
 fprintf('All done\n');
 

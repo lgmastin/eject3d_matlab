@@ -54,7 +54,8 @@ function [xfinal,yfinal,zfinal,tfinal] = eject3dfun(inow,diam,vi,thetadeg,phideg
     %% BLOCK 3.  PERFORM INITIAL CALCULATIONS AND ERROR CHECKS
     
     load(terrain_file,'terrain','t_lon','t_lat','utmstruct');            %load terrain file
-    [vent_x, vent_y] = mfwdtran(utmstruct,vent_lat,vent_lon);            %vent location in UTM
+    [vent_x, vent_y, UTM_zone] = deg2utm(vent_lat,vent_lon);
+    %[vent_x, vent_y] = mfwdtran(utmstruct,vent_lat,vent_lon);            %vent location in UTM
     vent_z  = double(interp2(t_lon,t_lat,terrain,vent_lon,vent_lat));  %get vent elevation
     elev = vent_z;
     xi = -100;                   %subtract a little to make sure ejection starts
@@ -198,7 +199,8 @@ function [xfinal,yfinal,zfinal,tfinal] = eject3dfun(inow,diam,vi,thetadeg,phideg
         time(i) = time(i-1) + dt;
         
         %Determine current longitude, latitude, elevation
-        [lat_now, lon_now]    = minvtran(utmstruct,(vent_x+xnow),(vent_y+ynow));
+        [lat_now, lon_now]     = utm2deg((vent_x+xnow),(vent_y+ynow),UTM_zone);
+        %[lat_now, lon_now]    = minvtran(utmstruct,(vent_x+xnow),(vent_y+ynow));
         ground_z_now = double(interp2(t_lon,t_lat,terrain,lon_now,lat_now));
         xi = ground_z_now-elev;
         
